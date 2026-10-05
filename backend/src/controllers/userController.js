@@ -22,9 +22,12 @@ const getUserById = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    if (req.user.role !== "admin" && req.user.id !== user._id.toString()) {
-      return res.status(403).json({ message: "Access denied" });
-    }
+    // VULNERABILITY: This check is commented out, which means that any authenticated user can access any other user's data by ID.
+    // This could lead to unauthorized access to sensitive information.
+    // It is important to ensure that only the user themselves or an admin can access this information.
+    // if (req.user.role !== "admin" && req.user.id !== user._id.toString()) {
+    //   return res.status(403).json({ message: "Access denied" });
+    // }
 
     res.status(200).json(user);
   } catch (error) {
@@ -43,10 +46,13 @@ const updateUser = async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
+    // VULNERABILITY: This check is commented out, which means that any authenticated user can access any other user's data by ID.
+    // This could lead to unauthorized access to sensitive information.
+    // It is important to ensure that only the user themselves or an admin can access this information.
 
-    if (req.user.role !== "admin" && req.user.id !== user._id.toString()) {
-      return res.status(403).json({ message: "Access denied" });
-    }
+    // if (req.user.role !== "admin" && req.user.id !== user._id.toString()) {
+    //   return res.status(403).json({ message: "Access denied" });
+    // }
     if (username) user.username = username;
     if (email) user.email = email;
     if (password) user.password = password;
@@ -67,9 +73,13 @@ const deleteUser = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    if (req.user.role !== "admin" && req.user.id !== user._id.toString()) {
-      return res.status(403).json({ message: "Access denied" });
-    }
+    // VULNERABILITY: This check is commented out, which means that any authenticated user can access any other user's data by ID.
+    // This could lead to unauthorized access to sensitive information.
+    // It is important to ensure that only the user themselves or an admin can access this information.
+
+    // if (req.user.role !== "admin" && req.user.id !== user._id.toString()) {
+    //   return res.status(403).json({ message: "Access denied" });
+    // }
 
     await user.deleteOne();
 
