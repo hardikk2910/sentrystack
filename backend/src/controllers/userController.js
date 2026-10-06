@@ -39,7 +39,8 @@ const getUserById = async (req, res) => {
 //UPDATE USER A USER
 const updateUser = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    // const { username, email, password } = req.body;
+    const { username, email, password, role } = req.body;
 
     const user = await User.findById(req.params.id);
 
@@ -56,6 +57,7 @@ const updateUser = async (req, res) => {
     if (username) user.username = username;
     if (email) user.email = email;
     if (password) user.password = password;
+    if (role) user.role = role;
 
     const updatedUser = await user.save();
     res.status(200).json(updatedUser);
