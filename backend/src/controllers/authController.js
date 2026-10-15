@@ -10,10 +10,11 @@ const generateRefreshToken = async (user) => {
   const refreshToken = jwt.sign(
     { id: user._id, jti: crypto.randomUUID() }, // jti makes each token unique
     process.env.JWT_REFRESH_SECRET,
-    { expiresIn: "7d" },
+    { expiresIn: "30d" },
   );
 
-  const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days from now
+  // const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days from now
+  const expiresAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000); // 30 days from now
 
   await RefreshToken.create({
     token: refreshToken,
@@ -77,10 +78,10 @@ const refreshAccessToken = async (req, res) => {
     );
 
     res.cookie("refreshToken", newRefreshToken, {
-      httpOnly: true,
+      httpOnly: false,
       secure: false,
       sameSite: "lax",
-      maxAge: 7 * 24 * 60 * 60 * 1000,
+      maxAge: 30 * 24 * 60 * 60 * 1000,
     });
 
     res.status(200).json({ token: newAccessToken });
@@ -137,10 +138,10 @@ const registerUser = async (req, res) => {
     const refreshToken = await generateRefreshToken(newUser);
 
     res.cookie("refreshToken", refreshToken, {
-      httpOnly: true,
+      httpOnly: false,
       secure: false, // set to true only when served over HTTPS (production)
       sameSite: "lax", // 'lax' is fine for localhost dev; revisit for prod
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days, matches your refresh token's JWT expiry
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days, matches your refresh token's JWT expiry
     });
 
     res.status(201).json({
@@ -190,10 +191,10 @@ const loginUser = async (req, res) => {
     const refreshToken = await generateRefreshToken(user);
 
     res.cookie("refreshToken", refreshToken, {
-      httpOnly: true,
+      httpOnly: false,
       secure: false, // set to true only when served over HTTPS (production)
       sameSite: "lax", // 'lax' is fine for localhost dev; revisit for prod
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days, matches your refresh token's JWT expiry
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 7 days, matches your refresh token's JWT expiry
     });
     res.status(200).json({
       message: "Login successful",
