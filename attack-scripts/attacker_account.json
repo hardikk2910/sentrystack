@@ -1,0 +1,8 @@
+{
+  "email": "attacker_72rh3xmi@example.com",
+  "password": "b60w9sghgmhaA1",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjkzYWJiZGFiYzNlMTExMGM1ZTY5NSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzk0NzE4Mzk1LCJleHAiOjE3OTQ3MjE5OTV9.mE0d5eLiPEBfGkE6a_DCkxGiT7xu7N0G68YLI_rA-Bw",
+  "user_id": "6af93abbdabc3e1110c5e695",
+  "role": "user",
+  "source": "self_registered"
+}

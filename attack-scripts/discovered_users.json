@@ -1,0 +1,82 @@
+[
+  {
+    "_id": "6ab4de19d4beebbbf27c14f5",
+    "username": "testuser1",
+    "email": "test@gmail.com",
+    "password": "$2b$10$wX3/BqwSaVkK9lW3ix2FjuKCKe/tJRasPIFjLfR03S9T.z0Cfl37y",
+    "role": "user",
+    "createdAt": "2026-09-24T08:23:53.124Z",
+    "updatedAt": "2026-09-24T08:23:53.124Z",
+    "__v": 0
+  },
+  {
+    "_id": "6ab86e66f777b898caa9e88b",
+    "username": "user1",
+    "email": "user1@gmail.com",
+    "password": "$2b$10$6evSK2eHHYYPZqpqSomwo.7nPX6opcpE0qu2nocy9fo3CL9UPeo46",
+    "role": "user",
+    "createdAt": "2026-09-27T01:16:22.709Z",
+    "updatedAt": "2026-09-27T01:16:22.709Z",
+    "__v": 0
+  },
+  {
+    "_id": "6ab8745bfffcba7032a399ab",
+    "username": "user2",
+    "email": "user2@yahoo.com",
+    "password": "$2b$10$.HnzGTEcROSLLBQ/61K8F.ygqEgeHDHmR3GBQvWz4r6aYWDqDKhpG",
+    "role": "user",
+    "createdAt": "2026-09-27T01:41:47.888Z",
+    "updatedAt": "2026-09-27T01:41:47.888Z",
+    "__v": 0
+  },
+  {
+    "_id": "6ab882f198e54fad033c2c79",
+    "username": "admin",
+    "email": "admin@gmail..com",
+    "password": "$2b$10$av.8CD3nxivxqrASsxGq7eU5joohhRDw4ywAyJnYn/g/ltAqNqhcu",
+    "role": "admin",
+    "createdAt": "2026-09-27T02:44:01.378Z",
+    "updatedAt": "2026-09-27T02:44:01.378Z",
+    "__v": 0
+  },
+  {
+    "_id": "6ac19b11eb1b54ca17386cc3",
+    "username": "john",
+    "email": "john@hotmail.com",
+    "password": "$2b$10$rCKoJYy69h3Udx1yPm/nQORyRiiUNG/MYsSacU8t2BInngqJQgfqy",
+    "role": "admin",
+    "createdAt": "2026-10-04T00:17:21.272Z",
+    "updatedAt": "2026-10-06T10:31:02.430Z",
+    "__v": 0
+  },
+  {
+    "_id": "6ac19bae912682f80fa886d3",
+    "username": "john1",
+    "email": "john1@gmail.com",
+    "password": "$2b$10$A49QPAZ.rsXEtqDf6zwOvOyP1KJlZLoZAxIhgVJwWXPrIPbfgpv/2",
+    "role": "user",
+    "createdAt": "2026-10-04T00:19:58.478Z",
+    "updatedAt": "2026-10-05T04:40:26.543Z",
+    "__v": 0
+  },
+  {
+    "_id": "6ad0aa85be2d7baf31d61752",
+    "username": "johnny",
+    "email": "johnnyother@gmail.com",
+    "password": "$2b$10$WrjcX/vIHK.Hu2L0f3IjzuGZWz1f7IRrhDz3S3nqJOQwdXA1xeqpe",
+    "role": "user",
+    "createdAt": "2026-10-15T10:27:17.060Z",
+    "updatedAt": "2026-10-15T10:27:17.060Z",
+    "__v": 0
+  },
+  {
+    "_id": "6af456a6e2e19c47a4587bb6",
+    "username": "attacker_t5ulwm80",
+    "email": "attacker_t5ulwm80@example.com",
+    "password": "$2b$10$Yj.kIYJFAbxycLWXnYJPBuy7Wz95vKHBmrd3jls42jrIORRJMTdsC",
+    "role": "admin",
+    "createdAt": "2026-11-11T11:51:02.597Z",
+    "updatedAt": "2026-11-11T12:00:26.472Z",
+    "__v": 0
+  }
+]
