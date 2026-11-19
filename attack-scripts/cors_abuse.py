@@ -29,8 +29,8 @@ Two misconfigurations are demonstrated here:
      revealing the server's directory structure and framework versions.
 
      We trigger this by sending a malformed MongoDB ObjectId as :id
-     (a valid-length hex string that isn't a real user) which causes
-     a CastError inside Mongoose, surfaced with a full stack trace.
+     (not a 24-char hex string) which causes a CastError inside
+     Mongoose, surfaced with a full stack trace.
 
 Usage:
     python cors_abuse.py
@@ -49,10 +49,9 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ESCALATED_ACCOUNT_FILE = os.path.join(SCRIPT_DIR, "escalated_admin_account.json")
 
 FORGED_ORIGIN = "https://evil-site.com"
-# A well-formed 24-hex-char string that is not a real MongoDB ObjectId
-# — triggers a Mongoose CastError → 500 with stack trace
-# BAD_OBJECT_ID = "aaaaaaaaaaaaaaaaaaaaaaaa"
+# Not a valid 24-char hex ObjectId — triggers a Mongoose CastError → 500 with stack trace
 BAD_OBJECT_ID = "notavalidid"
+
 
 def load_admin_session() -> dict:
     if not os.path.exists(ESCALATED_ACCOUNT_FILE):
@@ -138,8 +137,8 @@ def run(base_url: str = DEFAULT_BASE_URL):
         print("[+] STACK TRACE EXPOSURE CONFIRMED:")
         print("    Server returned a stack trace in the JSON response body.")
         print()
-        # Print the stack trace with indentation for readability
-        for line in stack.split("\\n")[:12]:
+        # Split on a real newline so the trace prints as readable, indented lines
+        for line in stack.split("\n")[:12]:
             print(f"    {line}")
         print()
         print("    Information disclosed:")
@@ -174,4 +173,3 @@ def run(base_url: str = DEFAULT_BASE_URL):
 
 if __name__ == "__main__":
     run()
-    
