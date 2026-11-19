@@ -1,5 +1,13 @@
 const express = require("express");
+const {
+  detectIdor,
+  detectMassAssignment,
+} = require("../middleware/detection/userAbuseDetector");
+const detectDataExposure = require("../middleware/detection/dataExposureDetector");
+
 const router = express.Router();
+router.use(detectDataExposure);
+
 const {
   getUsers,
   getUserById,
@@ -19,8 +27,7 @@ const reqruireAdmin = (req, res, next) => {
 };
 
 router.get("/", verifyToken, reqruireAdmin, getUsers);
-router.get("/:id", verifyToken, getUserById);
-router.put("/:id", verifyToken, updateUser);
-router.delete("/:id", verifyToken, deleteUser);
-
+router.get("/:id", verifyToken, detectIdor, getUserById);
+router.put("/:id", verifyToken, detectIdor, detectMassAssignment, updateUser);
+router.delete("/:id", verifyToken, detectIdor, deleteUser);
 module.exports = router;

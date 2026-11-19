@@ -6,6 +6,8 @@ const cookieParser = require("cookie-parser");
 
 const userRoutes = require("./routes/UserRoutes");
 const authRoutes = require("./routes/auth");
+const detectCorsAbuse = require("./middleware/detection/corsAbuseDetector");
+const detectErrorProbing = require("./middleware/detection/errorProbingDetector");
 
 dotenv.config();
 
@@ -18,6 +20,9 @@ app.use(
     credentials: true,
   }),
 );
+app.use(detectCorsAbuse);
+app.use(detectErrorProbing);
+
 //   cors({
 //     origin: "http://localhost:5173",
 //     credentials: true,
