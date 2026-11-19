@@ -144,3 +144,6 @@ vite.config.ts.timestamp-*
 .DS_Store
 .vscode/
 attack-scripts/venv/
+
+# Attack-script cached sessions (contain tokens)
+attack-scripts/*_account.json

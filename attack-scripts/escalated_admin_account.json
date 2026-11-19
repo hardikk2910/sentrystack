@@ -1,8 +1,0 @@
-{
-  "email": "attacker_72rh3xmi@example.com",
-  "password": "b60w9sghgmhaA1",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjkzYWJiZGFiYzNlMTExMGM1ZTY5NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc5NDcxODM5NSwiZXhwIjoxNzk0NzIxOTk1fQ.Eij2S3XL0topQjkkL2C3ZPnWb-2HDj3h61tpxG9RIBU",
-  "user_id": "6af93abbdabc3e1110c5e695",
-  "role": "admin",
-  "source": "mass_assignment_escalation"
-}
